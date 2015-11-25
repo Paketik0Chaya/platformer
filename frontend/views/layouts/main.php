@@ -3,7 +3,9 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -37,14 +39,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="header-left">
     <div class="logo">
-        <a href="http://192.168.10.107/platformer/frontend/web/index.php?r=news"><img src="images/logo.png" alt=""></a>
+        <a href=<?= Url::to(['news/index'])?>><img src="images/logo.png" alt=""></a>
     </div>
     <div class="top-nav">
         <ul>
-            <li class="active" ><a href="http://192.168.10.107/platformer/frontend/web/index.php?r=news" >ГЛАВНАЯ</a></li>
+            <li class="active" ><a href=<?= Url::to(['news/index'])?>> ГЛАВНАЯ</a></li>
 
-            <li><a href="http://192.168.10.107/platformer/frontend/web/index.php?r=about" class="black1"> О НАС</a></li>
-            <li><a href="http://192.168.10.107/platformer/frontend/web/index.php?r=game" class="black1"> ИГРЫ</a></li>
+            <li><a href=<?= Url::to(['about/index'])?> class="black1"> О НАС</a></li>
+            <li><a href=<?= Url::to(['game/index'])?> class="black1"> ИГРЫ</a></li>
             <li><a href="https://www.youtube.com/watch?v=fWR9d-GehrM" class="black1" > ВИДЕО</a></li>
             <li><a href="http://192.168.10.107/platformer/backend/web/index.php" >ВХОД</a></li>
         </ul>

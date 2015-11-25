@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $comment_id
  * @property integer $comment_autor_id
+ *  @property string $comment_autor_name
  * @property integer $comment_news_id
  * @property integer $comment_date
  * @property string $comment_text
@@ -29,9 +30,9 @@ class Comment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['comment_autor_id', 'comment_news_id', 'comment_date', 'comment_text'], 'required'],
+            [['comment_text'], 'required'],
             [['comment_autor_id', 'comment_news_id', 'comment_date'], 'integer'],
-            [['comment_text'], 'string']
+            [['comment_text', 'comment_autor_name'], 'string']
         ];
     }
 
@@ -41,11 +42,12 @@ class Comment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'comment_id' => 'comment ID',
-            'comment_autor_id' => 'comment Autor ID',
-            'comment_news_id' => 'comment News ID',
-            'comment_date' => 'comment Date',
-            'comment_text' => 'comment Text',
+            'comment_id' => 'ID',
+            'comment_autor_id' => 'Автор',
+            'comment_news_id' => 'Новость',
+            'comment_date' => 'Дата',
+            'comment_text' => 'Текст комментария',
         ];
     }
+
 }

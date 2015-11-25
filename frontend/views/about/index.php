@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
+<div class="content">
         <div class="about">
             <div class="about-top">
                 <div class="grid-about">
@@ -64,3 +64,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <div class="clear"> </div>
+</div>

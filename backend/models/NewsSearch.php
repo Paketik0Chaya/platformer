@@ -18,8 +18,8 @@ class NewsSearch extends News
     public function rules()
     {
         return [
-            [['news_id', 'news_date', 'news_author', 'news_game_id', 'news_status'], 'integer'],
-            [['news_text', 'news_img'], 'safe'],
+            [['id', 'news_date', 'news_author', 'news_game_id', 'news_status'], 'integer'],
+            [['news_text'], 'safe'],
         ];
     }
 
@@ -56,7 +56,7 @@ class NewsSearch extends News
         }
 
         $query->andFilterWhere([
-            'news_id' => $this->news_id,
+            'id' => $this->id,
             'news_date' => $this->news_date,
             'news_author' => $this->news_author,
             'news_game_id' => $this->news_game_id,
@@ -64,7 +64,7 @@ class NewsSearch extends News
         ]);
 
         $query->andFilterWhere(['like', 'news_text', $this->news_text])
-            ->andFilterWhere(['like', 'news_img', $this->news_img]);
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

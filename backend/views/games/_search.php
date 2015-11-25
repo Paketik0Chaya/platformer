@@ -15,17 +15,11 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'game_id') ?>
-
-    <?= $form->field($model, 'game_text') ?>
-
-    <?= $form->field($model, 'game_img') ?>
-
-    <?= $form->field($model, 'game_status') ?>
+    <?= $form->field($model, 'game_title') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

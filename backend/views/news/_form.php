@@ -11,27 +11,25 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="news-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype'=>'multipart/form-data']
+    ]); ?>
 
     <?= $form->field($model, 'news_text')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
-        'preset' => 'basic'
+        'preset' => 'full'
     ]) ?>
 
     <?= $form->field($model, 'news_title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'news_img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'news_date')->textInput() ?>
+    <?= $form->field($model, 'news_game_name')->textInput() ?>
 
-    <?= $form->field($model, 'news_author')->textInput() ?>
-
-    <?= $form->field($model, 'news_game_id')->textInput() ?>
-
-    <?= $form->field($model, 'news_status')->textInput() ?>
+    <?= $form->field($model, 'news_status')->radio(['options' => ['value' => 1]]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать новость' : 'Изменить новость', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

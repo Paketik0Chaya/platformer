@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'game_id',
             'game_text:ntext',
-            'game_img',
+            'image',
             'game_status',
         ],
     ]) ?>

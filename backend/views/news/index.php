@@ -16,14 +16,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create News', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Написать новость', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode($model->news_id), ['view', 'id' => $model->news_id]);
+            return Html::a(Html::encode($model->id), ['view', 'id' => $model->id]);
         },
     ]) ?>
 

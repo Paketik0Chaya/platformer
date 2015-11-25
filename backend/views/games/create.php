@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Games */
 
-$this->title = 'Create Games';
+$this->title = 'Опубликовать игру';
 $this->params['breadcrumbs'][] = ['label' => 'Games', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $game_id
  * @property string $game_text
- * @property string $game_img
+ * @property string $image
  * @property integer $game_status
  */
 class Games extends \yii\db\ActiveRecord
@@ -31,7 +31,6 @@ class Games extends \yii\db\ActiveRecord
             [['game_title'], 'string', 'max' => 255],
             [['game_text'], 'string'],
             [['game_status'], 'integer'],
-            [['game_img'], 'string', 'max' => 255]
         ];
     }
 
@@ -42,10 +41,18 @@ class Games extends \yii\db\ActiveRecord
     {
         return [
             'game_id' => 'Game ID',
-            'game_title'=> "Game Title",
-            'game_text' => 'Game Text',
-            'game_img' => 'Game Img',
-            'game_status' => 'Game Status',
+            'game_title'=> "Название игры",
+            'game_text' => 'Описание игры',
+            'image' => 'Изображение',
+            'game_status' => 'Опубликовать?',
+        ];
+    }
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
         ];
     }
 }

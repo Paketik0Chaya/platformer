@@ -60,10 +60,21 @@ class NewsController extends Controller
      */
     public function actionCreate()
     {
+        $userName = \Yii::$app->user->identity->username;//получаем имя пользователя оставившего нововсть
         $model = new News();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->news_id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->news_author = $userName;
+            $model->news_date = time();
+            $model->save();
+            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/images/file/'. $model->image->baseName . '.' . $model->image->extension);
+                $model->image->saveAs($path);
+                $model->attachImage($path,true);
+            }
+
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -80,9 +91,19 @@ class NewsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $userName = \Yii::$app->user->identity->username;//получаем имя пользователя оставившего нововсть
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->news_author = $userName;
+            $model->news_date = time();
+            $model->save();
+            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/images/file/', $model->image->baseName . '.' . $model->image->extension);
+                $model->image->saveAs($path);
+                $model->attachImage($path);
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->news_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

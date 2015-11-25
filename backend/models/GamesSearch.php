@@ -19,7 +19,7 @@ class GamesSearch extends Games
     {
         return [
             [['game_id', 'game_status'], 'integer'],
-            [['game_text', 'game_img'], 'safe'],
+            [['game_text', 'image'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class GamesSearch extends Games
         ]);
 
         $query->andFilterWhere(['like', 'game_text', $this->game_text])
-            ->andFilterWhere(['like', 'game_img', $this->game_img]);
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

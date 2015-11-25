@@ -936,8 +936,14 @@ a.just-do:hover {
 	width: 17%;
 }
 .top-comment-right{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	float: right;
-	width:82%;
+	width:100%;
+	background: #CDCDCD; /* Цвет фона */
+	padding: 5px; /* Поля вокруг текста */
+	opacity: 0.7; /* Полупрозрачный фон */
 }
 .left-single{
 	width:19%;
@@ -991,7 +997,7 @@ label.arrow-in {
 }
 .comments-top-top {
   position: relative;
-  margin: 1em 0 1em;
+  margin: 1em 0 2em;
 }
 .your-single {
   border: 1px solid #e2e2e2;
@@ -1447,6 +1453,7 @@ h4.author {
 .your-single input[type="text"] {
   width: 51%;
 }
+
 .grid-single-in textarea {
   width: 83%;
 }
@@ -1910,9 +1917,6 @@ ul.social li span, ul.social li a {
 .callbacks_tabs a:after {
   height: 5px;
   width: 17px;
-}
-.comment-text {
-	font-family: "Verdana";
 }
 .work-top p, .about-top p , p.para{
   font-size: 0.7em;
