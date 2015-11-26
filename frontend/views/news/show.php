@@ -9,7 +9,10 @@ use dosamigos\ckeditor\CKEditor;
         <div class="single">
             <div class="single-top">
                 <script src="js/responsiveslides.min.js"></script>
-                <img src="<?= $newsModel->image?>">
+                <?php $images = $newsModel->getImages(); ?>
+                <?php foreach($images as $image): ?>
+                    <img  src='<?= $image->getUrl()?>'>
+                <?php endforeach; ?>
                 <h2><?= $newsModel->news_title ?></h2>
                 <p class="para"><?= $newsModel->news_text ?></p>
             </div>

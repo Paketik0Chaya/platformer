@@ -11,9 +11,9 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="games-form">
 
-    <?php $form = ActiveForm::begin(['options' => [
-      'enctype' => 'multipart/from-data'
-    ]]); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype'=>'multipart/form-data']
+    ]); ?>
 
     <?= $form->field($model, 'game_title')->textInput(['maxlength' => true]) ?>
 
@@ -24,7 +24,16 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'game_status')->radio(['options' => ['value' => 1]]) ?>
+    <?php
+    $images = $model->getImages();
+    ?>
+    <?php foreach($images as $image): ?>
+
+        <img  src='<?= $image->getUrl('300x243') ?>'>
+
+    <?php endforeach; ?>
+
+    <?= $form->field($model, 'game_status')->checkbox(['options' => ['value' => 1]]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

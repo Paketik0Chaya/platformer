@@ -3,11 +3,15 @@
 use \yii\helpers\Url;
 ?>
 <div class="content">
+
 <?php foreach($models as $row): ?>
 
 <div class="content-grid">
     <a href="<?=Url::to(['show', 'id'=>$row->id]) ?>" class="b-link-stripe b-animate-go thickbox">
-        <img  src='<?= $row->image ?>'>
+    <?php $images = $row->getImages(); ?>
+            <?php foreach($images as $image): ?>
+            <img  src='<?= $image->getUrl('300x243')?>'>
+            <?php endforeach; ?>
         <div class="b-wrapper">
             <h2 class="b-animate b-from-left    b-delay03 ">
                 <span><?= $row->news_title ?></span>
@@ -16,6 +20,4 @@ use \yii\helpers\Url;
         </div>
     </a>
 </div>
-<?php endforeach ?>
-
-</div>
+<?php endforeach; ?>

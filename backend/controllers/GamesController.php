@@ -63,7 +63,13 @@ class GamesController extends Controller
         $model = new Games();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->game_id]);
+            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
+            if($model->image){
+                $path = Yii::getAlias('@frontend/web/images/temp/'. $model->image->baseName . '.' . $model->image->extension);
+                $model->image->saveAs($path);
+                $model->attachImage($path,true);
+            }
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,7 +88,13 @@ class GamesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->game_id]);
+            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
+            if($model->image){
+                $path = Yii::getAlias('@frontend/web/images/temp/'. $model->image->baseName . '.' . $model->image->extension);
+                $model->image->saveAs($path);
+                $model->attachImage($path,true);
+            }
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

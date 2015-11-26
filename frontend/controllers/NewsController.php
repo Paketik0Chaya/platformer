@@ -9,7 +9,7 @@ class NewsController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        $models = News::find()->where(['news_status' => 1])->all();
+        $models = News::find()->where(['news_status'=>1])->all();
         return $this->render('index', ['models' => $models]);
     }
 

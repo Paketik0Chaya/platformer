@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "{{%Games}}".
  *
- * @property integer $game_id
+ * @property integer $id
  * @property string $game_text
  * @property string $image
  * @property integer $game_status
@@ -40,7 +40,7 @@ class Games extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'game_id' => 'Game ID',
+            'id' => 'Game ID',
             'game_title'=> "Название игры",
             'game_text' => 'Описание игры',
             'image' => 'Изображение',

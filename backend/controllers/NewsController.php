@@ -69,7 +69,7 @@ class NewsController extends Controller
             $model->save();
             $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
             if($model->image){
-                $path = Yii::getAlias('@webroot/images/file/'. $model->image->baseName . '.' . $model->image->extension);
+                $path = Yii::getAlias('@frontend/web/images/temp/'. $model->image->baseName . '.' . $model->image->extension);
                 $model->image->saveAs($path);
                 $model->attachImage($path,true);
             }
@@ -98,7 +98,7 @@ class NewsController extends Controller
             $model->save();
             $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
             if($model->image){
-                $path = Yii::getAlias('@webroot/images/file/', $model->image->baseName . '.' . $model->image->extension);
+                $path = Yii::getAlias('@frontend/web/images/temp/', $model->image->baseName . '.' . $model->image->extension);
                 $model->image->saveAs($path);
                 $model->attachImage($path);
             }

@@ -28,13 +28,13 @@ AppAsset::register($this);
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Kappe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
 
+
+    <div class="clear"> </div>
 </head>
-<body>
+
 <?php $this->beginBody() ?>
 
 <div class="header-left">
@@ -61,6 +61,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <?php $this->endBody() ?>
-</body>
+
 </html>
 <?php $this->endPage() ?>

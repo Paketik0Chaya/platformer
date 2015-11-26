@@ -14,7 +14,7 @@ class GameController extends \yii\web\Controller
 
     public function actionShow($id)
     {
-        $data = Games::findOne(['game_id'=>$id, 'game_status'=>1]);
+        $data = Games::findOne(['id'=>$id, 'game_status'=>1]);
         return $this->render('show',['data'=>$data, 'id' => $id]);
     }
 }

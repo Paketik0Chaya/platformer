@@ -24,9 +24,18 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
+    <?php
+        $images = $model->getImages();
+    ?>
+    <?php foreach($images as $image): ?>
+
+        <img  src='<?= $image->getUrl('300x243') ?>'>
+
+    <?php endforeach; ?>
+
     <?= $form->field($model, 'news_game_name')->textInput() ?>
 
-    <?= $form->field($model, 'news_status')->radio(['options' => ['value' => 1]]) ?>
+    <?= $form->field($model, 'news_status')->checkbox(['options' => ['value' => 1]]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать новость' : 'Изменить новость', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

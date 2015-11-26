@@ -18,7 +18,7 @@ class GamesSearch extends Games
     public function rules()
     {
         return [
-            [['game_id', 'game_status'], 'integer'],
+            [['id', 'game_status'], 'integer'],
             [['game_text', 'image'], 'safe'],
         ];
     }
@@ -56,7 +56,7 @@ class GamesSearch extends Games
         }
 
         $query->andFilterWhere([
-            'game_id' => $this->game_id,
+            'id' => $this->id,
             'game_status' => $this->game_status,
         ]);
 
